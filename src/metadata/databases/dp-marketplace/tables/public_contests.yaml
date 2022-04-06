@@ -1,0 +1,37 @@
+table:
+  name: contests
+  schema: public
+array_relationships:
+- name: contest_entries
+  using:
+    foreign_key_constraint_on:
+      column: contest_id
+      table:
+        name: contest_entries
+        schema: public
+- name: contest_entries_votes
+  using:
+    foreign_key_constraint_on:
+      column: contest_id
+      table:
+        name: contest_entries_votes
+        schema: public
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - created_at
+    - creator
+    - description
+    - end_at
+    - id
+    - image_cid
+    - pending_submission_html
+    - prizes_html
+    - rules_html
+    - slug
+    - start_at
+    - title
+    - updated_at
+    filter: {}
+  role: public

@@ -1,0 +1,18 @@
+{
+  "name": "dp-marketplace-hasura",
+  "version": "1.0.0",
+  "description": "Hasura migrations and metadata for dp-marketplace",
+  "main": "index.js",
+  "scripts": {
+    "console": "npx hasura console --project src --address localhost --console-port 4000",
+    "console:staging": "npx hasura console --project src --address localhost --console-port 4000 --envfile .env.staging",
+    "status": "npx hasura migrate status --project src",
+    "status:staging": "npx hasura migrate status  --project src --envfile .env.staging",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "hasura-cli": "^2.2.0"
+  }
+}

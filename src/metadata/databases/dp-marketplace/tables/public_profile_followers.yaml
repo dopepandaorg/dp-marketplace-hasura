@@ -1,0 +1,7 @@
+table:
+  name: profile_followers
+  schema: public
+object_relationships:
+- name: profile
+  using:
+    foreign_key_constraint_on: wallet

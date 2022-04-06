@@ -1,0 +1,6 @@
+- "!include public_categories.yaml"
+- "!include public_contest_entries.yaml"
+- "!include public_contest_entries_votes.yaml"
+- "!include public_contests.yaml"
+- "!include public_profile_followers.yaml"
+- "!include public_profiles.yaml"

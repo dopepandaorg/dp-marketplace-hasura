@@ -1,0 +1,12 @@
+table:
+  name: profiles
+  schema: public
+select_permissions:
+- permission:
+    columns:
+    - bio
+    - display_name
+    - handle
+    - wallet
+    filter: {}
+  role: public

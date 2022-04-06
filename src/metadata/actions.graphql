@@ -1,0 +1,29 @@
+type Mutation {
+  CastVoteWithTx(
+    wallet: String!
+    contestId: uuid!
+    txId: String!
+  ): CastVoteOutput
+}
+
+type Mutation {
+  SyncProfileWithTx(
+    wallet: String
+    txId: String
+  ): SyncProfileWithTxOutput
+}
+
+type SyncProfileWithTxOutput {
+  display_name: String
+  handle: String
+  bio: String
+  wallet: String!
+}
+
+type CastVoteOutput {
+  asset_id: String!
+  contest_id: uuid!
+  tx_id: String!
+  voter: String!
+}
+

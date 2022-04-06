@@ -1,0 +1,31 @@
+table:
+  name: contest_entries_votes
+  schema: public
+object_relationships:
+- name: contest
+  using:
+    foreign_key_constraint_on: contest_id
+- name: contest_entry
+  using:
+    manual_configuration:
+      column_mapping:
+        asset_id: asset_id
+        contest_id: contest_id
+      insertion_order: null
+      remote_table:
+        name: contest_entries
+        schema: public
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - asset_id
+    - contest_id
+    - created_at
+    - tx_id
+    - updated_at
+    - updated_at_round
+    - voter
+    - weight_dpanda
+    filter: {}
+  role: public

@@ -1,0 +1,37 @@
+actions:
+- name: CastVoteWithTx
+  definition:
+    kind: synchronous
+    handler: https://hqg5d0so0j.execute-api.us-east-1.amazonaws.com/dev/CastVoteWithTx
+    request_transform:
+      body: |-
+        {
+          "wallet": {{$body.input.wallet}},
+          "txId": {{$body.input.txId}},
+          "contestId": {{$body.input.contestId}}
+        }
+      content_type: application/json
+      template_engine: Kriti
+  permissions:
+  - role: public
+- name: SyncProfileWithTx
+  definition:
+    kind: synchronous
+    handler: https://hqg5d0so0j.execute-api.us-east-1.amazonaws.com/dev/SyncProfileWithTx
+    request_transform:
+      body: |-
+        {
+          "wallet": {{$body.input.wallet}},
+          "txId": {{$body.input.txId}}
+        }
+      content_type: application/json
+      template_engine: Kriti
+  permissions:
+  - role: public
+custom_types:
+  enums: []
+  input_objects: []
+  objects:
+  - name: SyncProfileWithTxOutput
+  - name: CastVoteOutput
+  scalars: []

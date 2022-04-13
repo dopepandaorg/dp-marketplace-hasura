@@ -1,1 +1,6 @@
-[]
+- name: SyncVotesWeightByContest
+  webhook: https://hqg5d0so0j.execute-api.us-east-1.amazonaws.com/dev/SyncVotesWeightByContest
+  schedule: '*/15 * * * *'
+  include_in_metadata: true
+  payload:
+    contestId: a3d7be7e-f2f1-4b92-a1b1-3c69f1ed3ba0

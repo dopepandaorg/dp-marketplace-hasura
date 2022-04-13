@@ -8,6 +8,8 @@
     "console:staging": "npx hasura console --project src --address localhost --console-port 4000 --envfile .env.staging",
     "status": "npx hasura migrate status --project src",
     "status:staging": "npx hasura migrate status  --project src --envfile .env.staging",
+    "apply": "npx hasura migrate apply --project src",
+    "apply:staging": "npx hasura migrate apply  --project src --envfile .env.staging",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

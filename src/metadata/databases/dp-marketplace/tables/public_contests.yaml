@@ -33,5 +33,7 @@ select_permissions:
     - start_at
     - title
     - updated_at
+    - voting_start_at
+    - voting_type
     filter: {}
   role: public

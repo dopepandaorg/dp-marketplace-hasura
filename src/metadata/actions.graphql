@@ -7,6 +7,12 @@ type Mutation {
 }
 
 type Mutation {
+  ConnectProfile(
+    wallet: String
+  ): ConnectProfileOutput
+}
+
+type Mutation {
   SyncProfileWithTx(
     wallet: String
     txId: String
@@ -25,5 +31,9 @@ type CastVoteOutput {
   contest_id: uuid!
   tx_id: String!
   voter: String!
+}
+
+type ConnectProfileOutput {
+  wallet: String!
 }
 

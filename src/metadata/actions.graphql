@@ -20,10 +20,15 @@ type Mutation {
 }
 
 type SyncProfileWithTxOutput {
+  wallet: String!
   display_name: String
   handle: String
   bio: String
-  wallet: String!
+  social_twitter: String
+  social_instagram: String
+  social_website: String
+  avatar_cid: String
+  banner_cid: String
 }
 
 type CastVoteOutput {

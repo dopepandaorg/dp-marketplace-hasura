@@ -4,9 +4,14 @@ table:
 select_permissions:
 - permission:
     columns:
+    - avatar_cid
+    - banner_cid
     - bio
     - display_name
     - handle
+    - social_instagram
+    - social_twitter
+    - social_website
     - wallet
     filter: {}
   role: public

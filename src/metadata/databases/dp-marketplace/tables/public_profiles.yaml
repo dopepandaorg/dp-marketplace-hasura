@@ -7,6 +7,7 @@ select_permissions:
     - avatar_cid
     - banner_cid
     - bio
+    - created_at
     - display_name
     - handle
     - social_instagram

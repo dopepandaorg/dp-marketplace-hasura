@@ -1,18 +1,18 @@
 table:
-  name: profiles
   schema: public
+  name: profiles
 select_permissions:
-- permission:
-    columns:
-    - avatar_cid
-    - banner_cid
-    - bio
-    - created_at
-    - display_name
-    - handle
-    - social_instagram
-    - social_twitter
-    - social_website
-    - wallet
-    filter: {}
-  role: public
+  - role: public
+    permission:
+      columns:
+        - avatar_cid
+        - banner_cid
+        - bio
+        - created_at
+        - display_name
+        - handle
+        - social_instagram
+        - social_twitter
+        - social_website
+        - wallet
+      filter: {}

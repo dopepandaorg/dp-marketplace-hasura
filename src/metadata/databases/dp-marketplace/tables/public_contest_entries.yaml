@@ -1,32 +1,32 @@
 table:
-  name: contest_entries
   schema: public
+  name: contest_entries
 object_relationships:
-- name: contest
-  using:
-    foreign_key_constraint_on: contest_id
+  - name: contest
+    using:
+      foreign_key_constraint_on: contest_id
 array_relationships:
-- name: contest_entries_votes
-  using:
-    manual_configuration:
-      column_mapping:
-        asset_id: asset_id
-        contest_id: contest_id
-      insertion_order: null
-      remote_table:
-        name: contest_entries_votes
-        schema: public
+  - name: contest_entries_votes
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: contest_entries_votes
+        insertion_order: null
+        column_mapping:
+          asset_id: asset_id
+          contest_id: contest_id
 select_permissions:
-- permission:
-    allow_aggregations: true
-    columns:
-    - id
-    - contest_id
-    - title
-    - description
-    - creator
-    - asset_id
-    - created_at
-    - updated_at
-    filter: {}
-  role: public
+  - role: public
+    permission:
+      columns:
+        - id
+        - contest_id
+        - title
+        - description
+        - creator
+        - asset_id
+        - created_at
+        - updated_at
+      filter: {}
+      allow_aggregations: true

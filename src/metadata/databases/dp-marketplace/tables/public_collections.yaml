@@ -1,23 +1,8 @@
 table:
   schema: public
-  name: profiles
-select_permissions:
-  - role: public
-    permission:
-      columns:
-        - avatar_cid
-        - banner_cid
-        - bio
-        - created_at
-        - display_name
-        - handle
-        - social_instagram
-        - social_twitter
-        - social_website
-        - wallet
-      filter: {}
+  name: collections
 event_triggers:
-  - name: new_profile_participation_rewards
+  - name: new_collection_participation_rewards
     definition:
       enable_manual: false
       insert:
@@ -32,7 +17,7 @@ event_triggers:
         action: transform
         template: |-
           {
-            "wallet": {{$body.event.data.new.wallet}},
+            "wallet": {{$body.event.data.new.creator}},
             "type": {{$body.table.name}},
             "amount": 10
           }

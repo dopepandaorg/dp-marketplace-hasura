@@ -1,0 +1,3 @@
+table:
+  name: participation_rewards
+  schema: public

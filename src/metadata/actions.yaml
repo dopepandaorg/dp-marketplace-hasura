@@ -32,6 +32,24 @@ actions:
   permissions:
   - role: public
   comment: ConnectProfile
+- name: SubmitEntryWithTx
+  definition:
+    kind: synchronous
+    handler: '{{ACTION_BASE_ENDPOINT}}/SubmitEntryWithTx'
+    request_transform:
+      body:
+        action: transform
+        template: |-
+          {
+            "wallet": {{$body.input.wallet}},
+            "txId": {{$body.input.txId}},
+            "contestId": {{$body.input.contestId}}
+          }
+      template_engine: Kriti
+      version: 2
+  permissions:
+  - role: public
+  comment: SubmitEntryWithTx
 - name: SyncProfileWithTx
   definition:
     kind: synchronous
@@ -55,4 +73,5 @@ custom_types:
   - name: SyncProfileWithTxOutput
   - name: CastVoteOutput
   - name: ConnectProfileOutput
+  - name: SubmitEntryOutput
   scalars: []

@@ -1,0 +1,20 @@
+table:
+  name: collections
+  schema: public
+event_triggers:
+- definition:
+    enable_manual: false
+    insert:
+      columns: "*"
+  name: new_collection_participation_rewards
+  request_transform:
+    body:
+      action: transform
+      template: "{\n  \"wallet\": {{$body.event.data.new.creator}},\n  \"type\": {{$body.table.name}},\n  \"amount\": 10\n}"
+    template_engine: Kriti
+    version: 2
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{ACTION_BASE_ENDPOINT}}/EventInsertParticipateRewards"

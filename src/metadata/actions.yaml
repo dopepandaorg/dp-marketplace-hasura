@@ -1,58 +1,77 @@
 actions:
-- name: CastVoteWithTx
-  definition:
-    kind: synchronous
-    handler: '{{ACTION_BASE_ENDPOINT}}/CastVoteWithTx'
-    request_transform:
-      body:
-        action: transform
-        template: |-
-          {
-            "wallet": {{$body.input.wallet}},
-            "txId": {{$body.input.txId}},
-            "contestId": {{$body.input.contestId}}
-          }
-      template_engine: Kriti
-      version: 2
-  permissions:
-  - role: public
-- name: ConnectProfile
-  definition:
-    kind: synchronous
-    handler: '{{ACTION_BASE_ENDPOINT}}/ConnectProfile'
-    request_transform:
-      body:
-        action: transform
-        template: |-
-          {
-            "wallet": {{$body.input.wallet}}
-          }
-      template_engine: Kriti
-      version: 2
-  permissions:
-  - role: public
-  comment: ConnectProfile
-- name: SyncProfileWithTx
-  definition:
-    kind: synchronous
-    handler: '{{ACTION_BASE_ENDPOINT}}/SyncProfileWithTx'
-    request_transform:
-      body:
-        action: transform
-        template: |-
-          {
-            "wallet": {{$body.input.wallet}},
-            "txId": {{$body.input.txId}}
-          }
-      template_engine: Kriti
-      version: 2
-  permissions:
-  - role: public
+  - name: CastVoteWithTx
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_ENDPOINT}}/CastVoteWithTx'
+      request_transform:
+        body:
+          action: transform
+          template: |-
+            {
+              "wallet": {{$body.input.wallet}},
+              "txId": {{$body.input.txId}},
+              "contestId": {{$body.input.contestId}}
+            }
+        version: 2
+        template_engine: Kriti
+    permissions:
+      - role: public
+  - name: ConnectProfile
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_ENDPOINT}}/ConnectProfile'
+      request_transform:
+        body:
+          action: transform
+          template: |-
+            {
+              "wallet": {{$body.input.wallet}}
+            }
+        version: 2
+        template_engine: Kriti
+    permissions:
+      - role: public
+    comment: ConnectProfile
+  - name: SubmitEntryWithTx
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_ENDPOINT}}/SubmitEntryWithTx'
+      request_transform:
+        body:
+          action: transform
+          template: |-
+            {
+              "wallet": {{$body.input.wallet}},
+              "txId": {{$body.input.txId}},
+              "contestId": {{$body.input.contestId}}
+            }
+        version: 2
+        template_engine: Kriti
+    permissions:
+      - role: public
+    comment: SubmitEntryWithTx
+  - name: SyncProfileWithTx
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_ENDPOINT}}/SyncProfileWithTx'
+      request_transform:
+        body:
+          action: transform
+          template: |-
+            {
+              "wallet": {{$body.input.wallet}},
+              "txId": {{$body.input.txId}}
+            }
+        version: 2
+        template_engine: Kriti
+    permissions:
+      - role: public
 custom_types:
   enums: []
   input_objects: []
   objects:
-  - name: SyncProfileWithTxOutput
-  - name: CastVoteOutput
-  - name: ConnectProfileOutput
+    - name: SyncProfileWithTxOutput
+    - name: CastVoteOutput
+    - name: ConnectProfileOutput
+    - name: SubmitEntryOutput
   scalars: []

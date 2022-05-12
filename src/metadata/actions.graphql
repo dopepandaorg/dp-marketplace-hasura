@@ -13,6 +13,14 @@ type Mutation {
 }
 
 type Mutation {
+  SubmitEntryWithTx(
+    wallet: String!
+    contestId: uuid!
+    txId: String!
+  ): SubmitEntryOutput
+}
+
+type Mutation {
   SyncProfileWithTx(
     wallet: String
     txId: String
@@ -40,5 +48,13 @@ type CastVoteOutput {
 
 type ConnectProfileOutput {
   wallet: String!
+}
+
+type SubmitEntryOutput {
+  asset_id: String
+  contest_id: uuid!
+  created_at_round: bigint
+  created_tx_id: String
+  id: uuid!
 }
 

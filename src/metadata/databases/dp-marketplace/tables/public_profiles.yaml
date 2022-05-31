@@ -1,35 +1,35 @@
 table:
-  name: profiles
   schema: public
+  name: profiles
 select_permissions:
-- permission:
-    columns:
-    - avatar_cid
-    - banner_cid
-    - bio
-    - created_at
-    - display_name
-    - handle
-    - social_instagram
-    - social_twitter
-    - social_website
-    - wallet
-    filter: {}
-  role: public
+  - permission:
+      columns:
+        - avatar_cid
+        - banner_cid
+        - bio
+        - created_at
+        - display_name
+        - handle
+        - social_instagram
+        - social_twitter
+        - social_website
+        - wallet
+      filter: {}
+    role: public
 event_triggers:
-- definition:
-    enable_manual: false
-    insert:
-      columns: "*"
-  name: new_profile_participation_rewards
-  request_transform:
-    body:
-      action: transform
-      template: "{\n  \"wallet\": {{$body.event.data.new.wallet}},\n  \"type\": {{$body.table.name}},\n  \"amount\": 10\n}"
-    template_engine: Kriti
-    version: 2
-  retry_conf:
-    interval_sec: 10
-    num_retries: 0
-    timeout_sec: 60
-  webhook: "{{ACTION_BASE_ENDPOINT}}/EventInsertParticipateRewards"
+  - definition:
+      enable_manual: false
+      insert:
+        columns: "*"
+    name: new_profile_participation_rewards
+    request_transform:
+      body:
+        action: transform
+        template: "{\n  \"wallet\": {{$body.event.data.new.wallet}},\n  \"type\": {{$body.table.name}},\n  \"amount\": 10\n}"
+      template_engine: Kriti
+      version: 2
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: "{{ACTION_BASE_ENDPOINT}}/EventInsertParticipateRewards"

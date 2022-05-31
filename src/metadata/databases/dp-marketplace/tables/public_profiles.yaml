@@ -17,19 +17,24 @@ select_permissions:
         - wallet
       filter: {}
 event_triggers:
-  - definition:
+  - name: new_profile_participation_rewards
+    definition:
       enable_manual: false
       insert:
-        columns: "*"
-    name: new_profile_participation_rewards
+        columns: '*'
+    retry_conf:
+      num_retries: 0
+      interval_sec: 10
+      timeout_sec: 60
+    webhook: '{{ACTION_BASE_ENDPOINT}}/EventInsertParticipateRewards'
     request_transform:
       body:
         action: transform
-        template: "{\n  \"wallet\": {{$body.event.data.new.wallet}},\n  \"type\": {{$body.table.name}},\n  \"amount\": 10\n}"
-      template_engine: Kriti
+        template: |-
+          {
+            "wallet": {{$body.event.data.new.wallet}},
+            "type": {{$body.table.name}},
+            "amount": 10
+          }
       version: 2
-    retry_conf:
-      interval_sec: 10
-      num_retries: 0
-      timeout_sec: 60
-    webhook: "{{ACTION_BASE_ENDPOINT}}/EventInsertParticipateRewards"
+      template_engine: Kriti

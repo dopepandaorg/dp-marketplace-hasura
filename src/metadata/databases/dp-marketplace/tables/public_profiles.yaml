@@ -2,7 +2,8 @@ table:
   schema: public
   name: profiles
 select_permissions:
-  - permission:
+  - role: public
+    permission:
       columns:
         - avatar_cid
         - banner_cid
@@ -15,7 +16,6 @@ select_permissions:
         - social_website
         - wallet
       filter: {}
-    role: public
 event_triggers:
   - definition:
       enable_manual: false

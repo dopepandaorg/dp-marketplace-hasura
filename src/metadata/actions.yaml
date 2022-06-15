@@ -69,7 +69,7 @@ actions:
   - name: UpdateProfileFeaturedGalleryWithTx
     definition:
       kind: synchronous
-      handler: '{{ACTION_BASE_ENDPOINT}}/UpdateProfileFeaturedGalleryWithTx'
+      handler: '{{ACTION_BASE_ENDPOINT}}/UpdateFeaturedGalleryWithTx'
       request_transform:
         body:
           action: transform
@@ -82,7 +82,7 @@ actions:
         template_engine: Kriti
     permissions:
       - role: public
-    comment: UpdateProfileFeaturedGalleryWithTx
+    comment: UpdateFeaturedGalleryWithTx
 custom_types:
   enums: []
   input_objects: []

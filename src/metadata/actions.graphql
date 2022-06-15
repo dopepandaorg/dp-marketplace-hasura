@@ -27,6 +27,13 @@ type Mutation {
   ): SyncProfileWithTxOutput
 }
 
+type Mutation {
+  UpdateProfileFeaturedGalleryWithTx(
+    wallet: String!
+    txId: String!
+  ): UpdateProfileFeaturedGalleryWithTxOutput
+}
+
 type SyncProfileWithTxOutput {
   wallet: String!
   display_name: String
@@ -56,5 +63,10 @@ type SubmitEntryOutput {
   created_at_round: bigint
   created_tx_id: String
   id: uuid!
+}
+
+type UpdateProfileFeaturedGalleryWithTxOutput {
+  featured_gallery: jsonb
+  wallet: String!
 }
 

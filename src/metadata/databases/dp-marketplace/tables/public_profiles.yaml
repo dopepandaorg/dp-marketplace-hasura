@@ -10,6 +10,7 @@ select_permissions:
         - bio
         - created_at
         - display_name
+        - featured_gallery
         - handle
         - social_instagram
         - social_twitter

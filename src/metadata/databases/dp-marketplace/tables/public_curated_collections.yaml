@@ -1,6 +1,10 @@
 table:
   schema: public
   name: curated_collections
+object_relationships:
+  - name: collectionByCollection
+    using:
+      foreign_key_constraint_on: collection
 select_permissions:
   - role: public
     permission:

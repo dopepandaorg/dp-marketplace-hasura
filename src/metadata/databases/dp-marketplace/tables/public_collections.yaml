@@ -9,6 +9,13 @@ array_relationships:
         table:
           schema: public
           name: collections_analytics_1d
+  - name: curated_collections
+    using:
+      foreign_key_constraint_on:
+        column: collection
+        table:
+          schema: public
+          name: curated_collections
 select_permissions:
   - role: public
     permission:

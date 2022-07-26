@@ -13,6 +13,30 @@ type Mutation {
 }
 
 type Mutation {
+  CreateCollectionWithTx(
+    wallet: String!
+    txId: String!
+  ): CreateCollectionWithTxOutput
+}
+
+type Mutation {
+  RemoveEscrowListingWithTx(
+    id: uuid!
+    appId: bigint!
+    assetId: bigint!
+    wallet: String!
+    txId: String!
+  ): RemoveEscrowListingOutput
+}
+
+type Mutation {
+  SetupEscrowListingWithTx(
+    wallet: String!
+    txId: String!
+  ): SetupEscrowListingWithTxOutput
+}
+
+type Mutation {
   SubmitEntryWithTx(
     wallet: String!
     contestId: uuid!
@@ -21,10 +45,26 @@ type Mutation {
 }
 
 type Mutation {
+  SyncCollectionWithTx(
+    id: uuid!
+    wallet: String!
+    txId: String!
+  ): SyncCollectionWithTxOutput
+}
+
+type Mutation {
   SyncProfileWithTx(
     wallet: String
     txId: String
   ): SyncProfileWithTxOutput
+}
+
+type Mutation {
+  UpdateEscrowListingWithTx(
+    txId: String!
+    wallet: String!
+    escrowId: String!
+  ): UpdateEscrowListingWithTxOutput
 }
 
 type Mutation {
@@ -68,5 +108,63 @@ type SubmitEntryOutput {
 type UpdateProfileFeaturedGalleryWithTxOutput {
   featured_gallery: jsonb
   wallet: String!
+}
+
+type CreateCollectionWithTxOutput {
+  id: String
+  avatar_cid: String
+  banner_cid: String
+  creator: String!
+  description: String
+  is_verified: Boolean!
+  slug: String
+  title: String!
+}
+
+type SetupEscrowListingWithTxOutput {
+  application_address: String!
+  application_id: Int!
+  application_version: Int!
+  asset_id: bigint!
+  asset_unit: String!
+  created_at: timestamptz!
+  creator: String!
+  id: uuid!
+  sale_fee: Int!
+  sale_price: bigint!
+  sale_qty: Int!
+  sale_royalty: Int!
+  seller: String!
+  status: String!
+}
+
+type UpdateEscrowListingWithTxOutput {
+  application_address: String!
+  application_id: Int!
+  asset_id: bigint!
+  created_at: timestamptz!
+  creator: String!
+  id: uuid!
+  status: String!
+  updated_at: timestamptz!
+}
+
+type SyncCollectionWithTxOutput {
+  avatar_cid: String
+  banner_cid: String
+  description: String
+  pattern_prefix: String
+  slug: String
+  social_discord: String
+  social_twitter: String
+  social_website: String
+  title: String!
+}
+
+type RemoveEscrowListingOutput {
+  application_id: Int!
+  asset_id: bigint!
+  asset_unit: String
+  seller: String!
 }
 

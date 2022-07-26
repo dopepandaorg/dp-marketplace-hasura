@@ -1,0 +1,19 @@
+table:
+  schema: public
+  name: collections_analytics_1d
+object_relationships:
+  - name: collectionByCollection
+    using:
+      foreign_key_constraint_on: collection
+select_permissions:
+  - role: public
+    permission:
+      columns:
+        - collection
+        - floor_price
+        - id
+        - total_items
+        - ts
+        - volume
+      filter: {}
+      allow_aggregations: true

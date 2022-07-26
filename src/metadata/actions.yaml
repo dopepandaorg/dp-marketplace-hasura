@@ -32,6 +32,59 @@ actions:
     permissions:
       - role: public
     comment: ConnectProfile
+  - name: CreateCollectionWithTx
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_ENDPOINT}}/CreateCollectionWithTx'
+      request_transform:
+        body:
+          action: transform
+          template: |-
+            {
+              "wallet": {{$body.input.wallet}},
+              "txId": {{$body.input.txId}}
+            }
+        version: 2
+        template_engine: Kriti
+    permissions:
+      - role: public
+    comment: Create a collection with Tx
+  - name: RemoveEscrowListingWithTx
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_ENDPOINT}}/RemoveEscrowListingWithTx'
+      request_transform:
+        body:
+          action: transform
+          template: |-
+            {
+              "wallet": {{$body.input.wallet}},
+              "txId": {{$body.input.txId}},
+              "id": {{$body.input.id}},
+              "assetId": {{$body.input.assetId}},
+              "appId": {{$body.input.appId}}
+            }
+        version: 2
+        template_engine: Kriti
+    permissions:
+      - role: public
+  - name: SetupEscrowListingWithTx
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_ENDPOINT}}/SetupEscrowListingWithTx'
+      request_transform:
+        body:
+          action: transform
+          template: |-
+            {
+              "wallet": {{$body.input.wallet}},
+              "txId": {{$body.input.txId}}
+            }
+        version: 2
+        template_engine: Kriti
+    permissions:
+      - role: public
+    comment: Setup or update escrow listing
   - name: SubmitEntryWithTx
     definition:
       kind: synchronous
@@ -50,6 +103,24 @@ actions:
     permissions:
       - role: public
     comment: SubmitEntryWithTx
+  - name: SyncCollectionWithTx
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_ENDPOINT}}/SyncCollectionWithTx'
+      request_transform:
+        body:
+          action: transform
+          template: |-
+            {
+              "id": {{$body.input.id}},
+              "wallet": {{$body.input.wallet}},
+              "txId": {{$body.input.txId}}
+            }
+        version: 2
+        template_engine: Kriti
+    permissions:
+      - role: public
+    comment: SyncCollectionWithTx
   - name: SyncProfileWithTx
     definition:
       kind: synchronous
@@ -66,6 +137,24 @@ actions:
         template_engine: Kriti
     permissions:
       - role: public
+  - name: UpdateEscrowListingWithTx
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_ENDPOINT}}/UpdateEscrowListingWithTx'
+      request_transform:
+        body:
+          action: transform
+          template: |-
+            {
+              "wallet": {{$body.input.wallet}},
+              "txId": {{$body.input.txId}},
+              "escrowId": {{$body.input.escrowId}}
+            }
+        version: 2
+        template_engine: Kriti
+    permissions:
+      - role: public
+    comment: Update escrow listing with tx
   - name: UpdateProfileFeaturedGalleryWithTx
     definition:
       kind: synchronous
@@ -92,4 +181,9 @@ custom_types:
     - name: ConnectProfileOutput
     - name: SubmitEntryOutput
     - name: UpdateProfileFeaturedGalleryWithTxOutput
+    - name: CreateCollectionWithTxOutput
+    - name: SetupEscrowListingWithTxOutput
+    - name: UpdateEscrowListingWithTxOutput
+    - name: SyncCollectionWithTxOutput
+    - name: RemoveEscrowListingOutput
   scalars: []

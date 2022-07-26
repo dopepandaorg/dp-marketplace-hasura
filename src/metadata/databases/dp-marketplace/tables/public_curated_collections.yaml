@@ -1,0 +1,11 @@
+table:
+  schema: public
+  name: curated_collections
+select_permissions:
+  - role: public
+    permission:
+      columns:
+        - collection
+        - id
+        - selected_assets
+      filter: {}

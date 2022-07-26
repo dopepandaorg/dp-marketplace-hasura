@@ -1,3 +1,8 @@
+- name: SyncCollection1dAnalytics
+  webhook: '{{ACTION_BASE_ENDPOINT}}/SyncCollection1dAnalytics'
+  schedule: '*/10 * * * *'
+  include_in_metadata: true
+  payload: {}
 - name: SyncVotesWeightByContest
   webhook: https://hqg5d0so0j.execute-api.us-east-1.amazonaws.com/dev/SyncVotesWeightByContest
   schedule: '*/15 * * * *'

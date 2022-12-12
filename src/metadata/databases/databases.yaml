@@ -1,9 +1,9 @@
-- name: dp-marketplace
+- name: default
   kind: postgres
   configuration:
     connection_info:
       use_prepared_statements: false
       database_url:
-        from_env: PG_DATABASE_URL
+        from_env: PG_DATABASE_URL1
       isolation_level: read-committed
-  tables: "!include dp-marketplace/tables/tables.yaml"
+  tables: "!include default/tables/tables.yaml"
